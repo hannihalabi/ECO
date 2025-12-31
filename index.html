@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Webie MRR</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Sora:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section id="login-screen" class="login-screen" aria-live="polite">
+        <div class="login-card">
+          <p class="login-eyebrow">Webie MRR</p>
+          <h1>Log in to your board</h1>
+          <form id="login-form" class="login-form">
+            <label>
+              Email
+              <input
+                id="login-email"
+                type="email"
+                autocomplete="email"
+                placeholder="info@webie.se"
+                required
+              />
+            </label>
+            <label>
+              Password
+              <input
+                id="login-password"
+                type="password"
+                autocomplete="current-password"
+                placeholder="••••••••"
+                required
+              />
+            </label>
+            <button type="submit" class="primary-button">Enter</button>
+            <p id="login-error" class="form-error" role="alert" aria-live="polite"></p>
+          </form>
+        </div>
+      </section>
+
+      <section id="app" class="app hidden" aria-live="polite">
+        <div class="app-body">
+          <section id="panel-income" class="panel active" data-panel="income">
+            <div class="panel-header">
+              <div>
+                <p class="panel-label">Income</p>
+                <h2>Monthly recurring revenue</h2>
+              </div>
+              <div class="panel-meta">
+                <div class="panel-total">
+                  <span>Total</span>
+                  <strong id="income-total">--</strong>
+                </div>
+                <div class="month-picker" data-month-picker>
+                  <button type="button" class="month-button" data-month-shift="-1" aria-label="Previous month">
+                    Prev
+                  </button>
+                  <span class="month-label" data-month-label>--</span>
+                  <button type="button" class="month-button" data-month-shift="1" aria-label="Next month">
+                    Next
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="panel-content" id="income-list"></div>
+          </section>
+
+          <section id="panel-expenses" class="panel" data-panel="expenses">
+            <div class="panel-header">
+              <div>
+                <p class="panel-label">Expenses</p>
+                <h2>Monthly operating costs</h2>
+              </div>
+              <div class="panel-meta">
+                <div class="panel-total">
+                  <span>Total</span>
+                  <strong id="expenses-total">--</strong>
+                </div>
+                <div class="month-picker" data-month-picker>
+                  <button type="button" class="month-button" data-month-shift="-1" aria-label="Previous month">
+                    Prev
+                  </button>
+                  <span class="month-label" data-month-label>--</span>
+                  <button type="button" class="month-button" data-month-shift="1" aria-label="Next month">
+                    Next
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="panel-content" id="expenses-list"></div>
+          </section>
+
+          <section id="panel-summary" class="panel" data-panel="summary">
+            <div class="panel-header">
+              <div>
+                <p class="panel-label">Summary</p>
+                <h2>Net overview</h2>
+              </div>
+              <div class="panel-meta">
+                <div class="month-picker" data-month-picker>
+                  <button type="button" class="month-button" data-month-shift="-1" aria-label="Previous month">
+                    Prev
+                  </button>
+                  <span class="month-label" data-month-label>--</span>
+                  <button type="button" class="month-button" data-month-shift="1" aria-label="Next month">
+                    Next
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="panel-content summary-grid" id="summary-cards"></div>
+          </section>
+        </div>
+
+        <nav class="tab-bar" aria-label="Main tabs">
+          <button class="tab-button active" data-tab="income">Income</button>
+          <button class="tab-button" data-tab="expenses">Expenses</button>
+          <button class="tab-button" data-tab="summary">Summary</button>
+        </nav>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
